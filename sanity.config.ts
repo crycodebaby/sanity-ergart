@@ -1,18 +1,13 @@
 import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import {structureTool} from 'sanity/structure' // optional
+import jobPosting from './schemaTypes/jobPosting'
+import blockContent from './schemaTypes/blockContent'
 
 export default defineConfig({
   name: 'default',
-  title: 'ErgartKarriereContent',
-
+  title: 'Ergart Karriere Content',
   projectId: 'c76lselw',
   dataset: 'production',
-
-  plugins: [structureTool(), visionTool()],
-
-  schema: {
-    types: schemaTypes,
-  },
+  plugins: [structureTool()],
+  schema: {types: [jobPosting, blockContent]},
 })
