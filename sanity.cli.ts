@@ -1,13 +1,8 @@
+// sanity.cli.ts
 import {defineCliConfig} from 'sanity/cli'
 
 export default defineCliConfig({
-  api: {
-    projectId: 'c76lselw',
-    dataset: 'production'
-  },
-  /**
-   * Enable auto-updates for studios.
-   * Learn more at https://www.sanity.io/docs/cli#auto-updates
-   */
-  autoUpdates: true,
+  api: {projectId: '2vj1v9w9', dataset: 'production'},
+  // für stabile Releases ohne CDN-Drift:
+  deployment: {autoUpdates: false},
 })

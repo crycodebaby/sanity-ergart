@@ -1,13 +1,21 @@
+// sanity.config.ts
 import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure' // optional
-import jobPosting from './schemaTypes/jobPosting'
-import blockContent from './schemaTypes/blockContent'
+import {structureTool} from 'sanity/structure'
+import {visionTool} from '@sanity/vision'
+import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
   title: 'Ergart Karriere Content',
-  projectId: 'c76lselw',
+  projectId: '2vj1v9w9',
   dataset: 'production',
-  plugins: [structureTool()],
-  schema: {types: [jobPosting, blockContent]},
+  
+  plugins: [
+    structureTool(),
+    visionTool(), // For GROQ Testing
+  ],
+  
+  schema: {
+    types: schemaTypes,
+  },
 })

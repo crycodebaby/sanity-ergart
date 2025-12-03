@@ -46,6 +46,22 @@ export default defineType({
       title: 'Beschreibung (Rich Text)',
       type: 'blockContent',
     }),
+    // SEO Felder für Google Optimierung
+    defineField({
+      name: 'metaTitle',
+      title: 'SEO Titel',
+      type: 'string',
+      description: 'Wird als Seitentitel in Google angezeigt (max. 60 Zeichen)',
+      validation: (Rule) => Rule.max(60).warning('Sollte unter 60 Zeichen sein'),
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'SEO Beschreibung',
+      type: 'text',
+      rows: 3,
+      description: 'Wird als Beschreibung in Google angezeigt (max. 160 Zeichen)',
+      validation: (Rule) => Rule.max(160).warning('Sollte unter 160 Zeichen sein'),
+    }),
     defineField({
       name: 'isActive',
       title: 'Aktiv',
